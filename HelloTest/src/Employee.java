@@ -1,9 +1,9 @@
 
 public class Employee {
 
-	String firstName;
-	String lastName;
-	double monthlySalary;
+	private String firstName;
+	private String lastName;
+	private double monthlySalary;
 	
 	public Employee(String fN, String lN, double mS) {
 		firstName = fN;
@@ -11,20 +11,20 @@ public class Employee {
 		monthlySalary = mS;
 	}
 	
-	String getName() {
+	public String getName() {
 		return firstName;
 	}
 
-	String getLastName() {
+	public String getLastName() {
 		return lastName;
 	}
 	
-	void setSalary(double sS) {
+	public void setSalary(double sS) {
 		if(sS >= 0)
 			monthlySalary = sS;
 	}
 	
-	double getSalary() {
+	public double getSalary() {
 		return monthlySalary;
 	}
 	
