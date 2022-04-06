@@ -1,5 +1,6 @@
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class homework5_2 {
@@ -8,15 +9,34 @@ public class homework5_2 {
 		
 		Scanner sc = new Scanner(System.in);
 		SecureRandom random = new SecureRandom();
-		System.out.print("숫자 6개를 입력하세요 : ");
 		
 		ArrayList<Integer> input = new ArrayList<>();
 		ArrayList<Integer> lotto = new ArrayList<>();
 		ArrayList<Integer> correct = new ArrayList<>();
 		int count = 0;
 		
+		boolean check;
+		do {
+			check = false;
+			System.out.print("숫자 6개를 입력하세요 : ");
+			for(int i=0; i<6; i++) {
+				input.add(sc.nextInt());
+			}
+			
+			Collections.sort(input);
+			
+			for(int i=1; i<6; i++) {
+				if(input.get(i-1)==input.get(i)) {
+					check = true;
+					System.out.println("숫자가 중복되었습니다. 중복되지 않도록 다시 입력하세요.");
+					input.clear();
+					break;
+				}
+			}
+
+		} while(check==true);
+		
 		for(int i=0; i<6; i++) {
-			input.add(sc.nextInt());
 			lotto.add(random.nextInt(45)+1);
 			//로또 숫자 중복 처리
 			for(int j=0; j<i; j++) {
@@ -26,6 +46,10 @@ public class homework5_2 {
 			}
 		}
 
+		//일치하는 숫자 정렬
+		Collections.sort(lotto);
+		Collections.sort(correct);
+		
 		for(int i=0; i<6; i++){
 			for(int j=0; j<6; j++) {
 				if(input.get(i)==lotto.get(j)) {
