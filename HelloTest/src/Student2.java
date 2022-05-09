@@ -28,8 +28,6 @@ public class Student2 extends Person2 {
 	
 	public void setGrade(int grade) {
 		this.grade = grade;
-	}
-	
-	
+	}	
 	
 }
