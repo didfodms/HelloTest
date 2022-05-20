@@ -1,40 +1,53 @@
-
-public class Rectangle {
-
-	private double length = 1;
-	private double width = 1;
+class Rectangle extends Shape {
 	
-	public Rectangle(double length, double width) {
+	private int length;
+	private int width;
+	
+	public Rectangle() {
+		super();
+	}
+	
+	public Rectangle(int length, int width) {
+		super();
 		this.length = length;
 		this.width = width;
 	}
 	
-	public void setLength (double length) {
-		if(0.0 < length && length < 20.0) {
-			this.length = length;
-		}
+	public Rectangle(int length, int width, String color) {
+		super();
+		this.length = length;
+		this.width = width;
+		super.setColor(color);
 	}
 	
-	public void setWidth (double width) {
-		if(0.0 < width && width < 20.0) {
-			this.width = width;
-		}
+	public void setLength(int length) {
+		this.length = length;
 	}
 	
-	public double getLength() {
-		return this.length;
+	public int getLength() {
+		return length;
 	}
 	
-	public double getWidth() {
-		return this.width;
+	public void setwidth(int width) {
+		this.width = width;
 	}
-
-	public double calPerimeter() {
-		return 2*(getLength() + getWidth());
+	
+	public int getWidth() {
+		return width;
 	}
+	
+	@Override
+	public double getArea() {
+		return (length * width);
+	}
+	
+	@Override
+	public String toString() {
+		String res = "";
+		res += "Rectangle [ length = "+length+", width = "+width+", Shape[color="+super.getColor()+"] ]";
+		res += "\nArea is "+getArea();
 		
-	public double calArea() {
-		return getLength()*getWidth();
+		return res;
 	}
 	
 }
