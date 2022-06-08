@@ -2,7 +2,10 @@
 public class ReadTextFile {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		try(Scanner input = new Scanner(Paths.get("clients.txt"))) {
+			System.out.printf("%-10s%-12s%-12s%10s%n", args)
+		}
 
 	}
 
